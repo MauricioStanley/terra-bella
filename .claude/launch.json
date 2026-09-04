@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "terra-bella",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "4322"],
+      "port": 4322
+    }
+  ]
+}
