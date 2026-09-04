@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Habitaciones · Terra Bella Hotel Boutique</title>
+<meta name="description" content="Trece habitaciones alrededor del jardín de Terra Bella, en Colonia San Benito. Habitación Jardín, Superior, Doble, Familiar y Suite Terra con terraza privada. Desde 84 USD la noche, desayuno incluido.">
+<meta name="theme-color" content="#a9542f">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icons/icon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<noscript><style>.reveal,.reveal-img{opacity:1!important;transform:none!important;clip-path:none!important}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="site-header site-header--inner">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Terra Bella Hotel Boutique — inicio">
+      <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 34 40"><path d="M17 4c-6 5-10 10-10 17a10 10 0 0 0 20 0c0-7-4-12-10-17Z" fill="#c98a5f"/><path d="M17 12c-3 3-5 6-5 9a5 5 0 0 0 10 0c0-3-2-6-5-9Z" fill="#43462b"/></svg></span>
+      <span class="brand__word"><b>Terra Bella</b><span>Hotel Boutique</span></span>
+    </a>
+    <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="habitaciones.html" aria-current="page">Habitaciones</a>
+      <a href="restaurante.html">Restaurante</a>
+      <a href="experiencias.html">Experiencias</a>
+      <a href="ofertas.html">Ofertas</a>
+      <a href="ubicacion.html">Ubicación</a>
+      <a class="btn btn--ghost-light nav__cta" href="reservar.html">Reservar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pagehero" style="min-height:42vh">
+  <div class="pagehero__media"><img src="assets/img/hotel/room-superior.jpg" alt="Habitación de Terra Bella con luz natural y cama vestida en algodón"></div>
+  <div class="wrap">
+    <h1 class="h-lg">Nuestras habitaciones</h1>
+    <div class="crumbs"><a href="index.html">Inicio</a> / <span>Habitaciones</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="lede">Trece habitaciones alrededor del jardín. Elige por vista, cama y espacio; todas comparten el mismo estándar de descanso y el desayuno incluido en la tarifa flexible.</p>
+    </div>
+    <div id="rooms"></div>
+
+    <div class="center" style="margin:8px 0 40px">
+      <button class="btn btn--ghost" data-compare-toggle data-show="Comparar todas las habitaciones" data-hide="Ocultar comparación">Comparar todas las habitaciones</button>
+    </div>
+    <div id="compare-panel" hidden>
+      <div class="compare-wrap"><table class="compare" id="compare-table"></table></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="wrap--narrow">
+    <h2 class="h-lg">¿Lista tu fecha?</h2>
+    <p>Consulta disponibilidad y tarifas en tiempo real en el motor de reservas.</p>
+    <a class="btn btn--primary" href="reservar.html">Reservar ahora</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer" data-footer></footer>
+<div class="mobile-book"><a class="btn btn--primary" href="reservar.html">Reservar ahora</a></div>
+
+<script src="assets/js/data.js"></script>
+<script>
+/* Render de habitaciones y tabla comparativa desde TB_DATA */
+(function () {
+  var D = window.TB_DATA; if (!D) return;
+  var mount = document.getElementById("rooms");
+  var arrow = '<svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.4"/></svg>';
+
+  mount.innerHTML = D.rooms.map(function (r, i) {
+    var rev = i % 2 ? " split--reverse" : "";
+    var am = r.amenities.map(function (a) { return "<li>" + a + "</li>"; }).join("");
+    return '' +
+    '<div class="split' + rev + ' reveal" id="' + r.id + '" style="margin-bottom:clamp(48px,9vh,96px)">' +
+      '<div class="split__media reveal-img">' +
+        '<img src="' + r.img + '" alt="' + r.name + '">' +
+        '<span class="tag">' + r.view + '</span>' +
+      '</div>' +
+      '<div class="split__body">' +
+        '<h2 class="h-md" style="margin-bottom:6px">' + r.name + '</h2>' +
+        '<p class="card__price" style="font-size:1.15rem;margin-bottom:14px"><span>Desde</span> $' + r.from + ' <small>/ noche</small></p>' +
+        '<div class="card__meta" style="margin-bottom:14px"><span>' + r.size + '</span><span>' + r.bed + '</span><span>' + r.occupancy + '</span></div>' +
+        '<p style="color:var(--ink-2)">' + r.desc + '</p>' +
+        '<p style="margin:18px 0 8px;font-family:var(--font-body);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--ink-3)">Lo que incluye</p>' +
+        '<ul class="stack" style="gap:8px;color:var(--ink-2);font-size:.93rem">' + am + '</ul>' +
+        '<div style="margin-top:26px"><a class="btn btn--primary btn--sm" href="reservar.html?room=' + r.id + '">Reservar esta habitación</a></div>' +
+      '</div>' +
+    '</div>';
+  }).join("");
+
+  var t = document.getElementById("compare-table");
+  var rows = [
+    ["Desde (USD / noche)", function (r) { return '<span class="from">$' + r.from + "</span>"; }],
+    ["Superficie", function (r) { return r.size; }],
+    ["Cama", function (r) { return r.bed; }],
+    ["Capacidad", function (r) { return r.occupancy; }],
+    ["Vista", function (r) { return r.view; }],
+    ["Terraza privada", function (r) { return /terraza/i.test(r.desc + r.view) ? '<span class="yes">Sí</span>' : '<span class="no">—</span>'; }]
+  ];
+  var head = "<thead><tr><th></th>" + D.rooms.map(function (r) { return "<th>" + r.name + "</th>"; }).join("") + "</tr></thead>";
+  var body = "<tbody>" + rows.map(function (row) {
+    return "<tr><th>" + row[0] + "</th>" + D.rooms.map(function (r) { return "<td>" + row[1](r) + "</td>"; }).join("") + "</tr>";
+  }).join("");
+  body += "<tr><th></th>" + D.rooms.map(function (r) { return '<td><a class="link-arrow" href="reservar.html?room=' + r.id + '">Ver ' + arrow + "</a></td>"; }).join("") + "</tr></tbody>";
+  t.innerHTML = head + body;
+})();
+</script>
+<script src="assets/js/partials.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/i18n.js"></script>
+</body>
+</html>
