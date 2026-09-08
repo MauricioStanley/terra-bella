@@ -52,7 +52,7 @@ manifest.json / sw.js  PWA: instalable y con carga sin conexión
 
 ## Antes de publicarlo como sitio oficial
 
-- **Imágenes:** las de `assets/img/hotel/` son **provisionales** (bloques de color etiquetados). Sustituir por fotografía real del hotel: fachada, jardín, terraza, cada categoría de habitación, comedor y bar.
+- **Imágenes:** las de `assets/img/hotel/` son **fotografías de stock** (Unsplash, uso libre) puestas solo para visualizar el diseño. Sustituir por fotografía real del hotel: fachada, jardín, terraza, cada categoría de habitación, comedor y bar.
 - **Datos a confirmar con el hotel:** número exacto de habitaciones (la maqueta usa 13), nombres y conceptos del restaurante y el bar (aquí "Comedor del Jardín" y "Bar Revolución" son propuestas), tarifas, horarios, política de mascotas, coordenadas exactas del mapa, teléfono y correo.
 - **Reseñas y calificación** de la portada son de ejemplo.
 - El **calendario de precios** del motor de reservas se calcula (temporada / fin de semana); no refleja disponibilidad real.
