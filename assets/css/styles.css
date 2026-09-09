@@ -400,6 +400,16 @@ body.nav-open .burger span:nth-child(3) { transform: translateY(-8px) rotate(-45
   45% { transform: scaleY(1); opacity: 1; }
   100% { transform: scaleY(1); opacity: 0; }
 }
+/* móvil: el contenido del hero centrado y despejado de la barra fija inferior */
+@media (max-width: 700px) {
+  .hero {
+    min-height: 90vh;
+    align-items: center;
+    padding: calc(var(--header-h) + 24px) 0 clamp(84px, 12vh, 120px);
+  }
+  .hero p { font-size: 1.02rem; }
+  .hero__scroll { display: none; }
+}
 
 /* hero de páginas interiores */
 .pagehero {
@@ -885,6 +895,10 @@ body.announce-off .announce { display: none; }
   .stickybar form { gap: 8px; }
   .stickybar .fld--guests { display: none; }
   .stickybar input { width: 132px; }
+}
+/* en móvil la reserva ya está fija abajo (.mobile-book); no duplicar arriba */
+@media (max-width: 1040px) {
+  .stickybar { display: none; }
 }
 @media (max-width: 560px) {
   .stickybar .fld { flex: 1; }

@@ -1,7 +1,7 @@
 /* Service worker — caché básico para carga instantánea y uso sin conexión.
    Estrategia: "stale-while-revalidate" para todo lo del mismo origen. */
-var CACHE = "terrabella-v6";
-var V = "?v=5";
+var CACHE = "terrabella-v7";
+var V = "?v=6";
 var CORE = [
   "index.html", "habitaciones.html", "restaurante.html", "experiencias.html",
   "ofertas.html", "ubicacion.html", "reservar.html", "privacidad.html",
