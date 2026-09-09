@@ -1,12 +1,13 @@
 /* Service worker — caché básico para carga instantánea y uso sin conexión.
    Estrategia: "stale-while-revalidate" para todo lo del mismo origen. */
-var CACHE = "terrabella-v1";
+var CACHE = "terrabella-v6";
+var V = "?v=5";
 var CORE = [
   "index.html", "habitaciones.html", "restaurante.html", "experiencias.html",
   "ofertas.html", "ubicacion.html", "reservar.html", "privacidad.html",
-  "assets/css/styles.css",
-  "assets/js/data.js", "assets/js/partials.js", "assets/js/main.js",
-  "assets/js/booking.js", "assets/js/i18n.js",
+  "assets/css/styles.css" + V,
+  "assets/js/data.js" + V, "assets/js/partials.js" + V, "assets/js/main.js" + V,
+  "assets/js/booking.js" + V, "assets/js/i18n.js" + V,
   "favicon.svg", "manifest.json"
 ];
 
@@ -30,6 +31,7 @@ self.addEventListener("fetch", function (e) {
   if (req.method !== "GET") return;
   var url = new URL(req.url);
   if (url.origin !== location.origin) return; // no interceptar Google Maps/Fonts
+  if (/\.html$/.test(url.pathname) && url.search) return; // no cachear páginas con parámetros (p. ej. reservar.html?promo=…)
   e.respondWith(
     caches.open(CACHE).then(function (cache) {
       return cache.match(req).then(function (cached) {

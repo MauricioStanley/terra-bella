@@ -6,17 +6,25 @@
 <title>Terra Bella Hotel Boutique · San Salvador · Un jardín en medio de la ciudad</title>
 <meta name="description" content="Hotel boutique en Colonia San Benito, San Salvador. Trece habitaciones alrededor de un jardín, desayuno cocinado al momento y ubicación a pasos de los museos y la Zona Rosa. Reserva directa con la mejor tarifa.">
 <meta name="theme-color" content="#a9542f">
+<link rel="canonical" href="https://mauriciostanley.github.io/terra-bella/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/icons/icon-192.png">
 <link rel="manifest" href="manifest.json">
 <meta property="og:title" content="Terra Bella Hotel Boutique · San Salvador">
 <meta property="og:description" content="Un jardín en medio de la ciudad. Trece habitaciones en Colonia San Benito, con desayuno cocinado al momento.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/img/hotel/hero.jpg">
+<meta property="og:site_name" content="Terra Bella Hotel Boutique">
+<meta property="og:locale" content="es_SV">
+<meta property="og:url" content="https://mauriciostanley.github.io/terra-bella/">
+<meta property="og:image" content="https://mauriciostanley.github.io/terra-bella/assets/img/hotel/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terra Bella Hotel Boutique · San Salvador">
+<meta name="twitter:description" content="Un jardín en medio de la ciudad. Trece habitaciones en Colonia San Benito, con desayuno cocinado al momento.">
+<meta name="twitter:image" content="https://mauriciostanley.github.io/terra-bella/assets/img/hotel/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css?v=5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -102,34 +110,6 @@
   </div>
   <div class="hero__scroll" aria-hidden="true"><span>Descubre</span><i></i></div>
 </section>
-
-<!-- ===== BARRA DE RESERVA ===== -->
-<div class="wrap bookbar-wrap">
-  <form class="bookbar" id="bookbar" aria-label="Buscar disponibilidad">
-    <div class="bookbar__field">
-      <label for="bb-checkin">Entrada</label>
-      <input type="date" id="bb-checkin" name="checkin" required>
-    </div>
-    <div class="bookbar__field">
-      <label for="bb-checkout">Salida</label>
-      <input type="date" id="bb-checkout" name="checkout" required>
-    </div>
-    <div class="bookbar__field bookbar__guests" id="bb-guests" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
-      <label>Huéspedes</label>
-      <span class="stepper-display" id="bb-guests-display">2 adultos · 0 niños · 1 habitación</span>
-      <div class="guests-pop" id="guests-pop">
-        <div class="guests-row"><span>Adultos</span><span class="stepper"><button type="button" data-step="adults:down" aria-label="menos adultos">−</button><span id="val-adults">2</span><button type="button" data-step="adults:up" aria-label="más adultos">+</button></span></div>
-        <div class="guests-row"><span>Niños</span><span class="stepper"><button type="button" data-step="children:down" aria-label="menos niños">−</button><span id="val-children">0</span><button type="button" data-step="children:up" aria-label="más niños">+</button></span></div>
-        <div class="guests-row"><span>Habitaciones</span><span class="stepper"><button type="button" data-step="rooms:down" aria-label="menos habitaciones">−</button><span id="val-rooms">1</span><button type="button" data-step="rooms:up" aria-label="más habitaciones">+</button></span></div>
-      </div>
-    </div>
-    <div class="bookbar__field">
-      <label for="bb-promo">Código / Tarifa</label>
-      <input type="text" id="bb-promo" name="promo" placeholder="Opcional">
-    </div>
-    <button class="bookbar__submit" type="submit"><span class="btn btn--primary">Consultar</span></button>
-  </form>
-</div>
 
 <!-- ===== BIENVENIDA ===== -->
 <section class="section">
@@ -268,6 +248,25 @@
   </div>
 </section>
 
+<!-- ===== GALERÍA ===== -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="section-head center">
+      <h2 class="h-lg">La casa por dentro</h2>
+      <p class="lede">Jardín, terraza, comedor y habitaciones. Toca cualquier imagen para verla en grande.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <button class="wide" type="button" data-lightbox="assets/img/hotel/garden.jpg" data-caption="El jardín interior"><img src="assets/img/hotel/garden.jpg" alt="Jardín interior de Terra Bella con plantas de la región" loading="lazy"></button>
+      <button type="button" data-lightbox="assets/img/hotel/suite-terra.jpg" data-caption="Suite Terra"><img src="assets/img/hotel/suite-terra.jpg" alt="Suite Terra con dormitorio y sala de estar" loading="lazy"></button>
+      <button class="tall" type="button" data-lightbox="assets/img/hotel/bar.jpg" data-caption="Bar Revolución"><img src="assets/img/hotel/bar.jpg" alt="Bar Revolución con barra de madera" loading="lazy"></button>
+      <button type="button" data-lightbox="assets/img/hotel/breakfast.jpg" data-caption="El desayuno, cocinado al momento"><img src="assets/img/hotel/breakfast.jpg" alt="Desayuno con fruta, pan y café" loading="lazy"></button>
+      <button type="button" data-lightbox="assets/img/hotel/room-superior.jpg" data-caption="Habitación Superior"><img src="assets/img/hotel/room-superior.jpg" alt="Habitación Superior con cama King" loading="lazy"></button>
+      <button class="wide" type="button" data-lightbox="assets/img/hotel/terrace.jpg" data-caption="La terraza al final del día"><img src="assets/img/hotel/terrace.jpg" alt="Terraza con mesas junto al jardín al atardecer" loading="lazy"></button>
+      <button type="button" data-lightbox="assets/img/hotel/room-garden.jpg" data-caption="Habitación Jardín"><img src="assets/img/hotel/room-garden.jpg" alt="Habitación Jardín con ventana al jardín" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
 <!-- ===== RESERVA DIRECTA ===== -->
 <section class="section section--sand">
   <div class="wrap">
@@ -344,9 +343,9 @@
 <footer class="site-footer" data-footer></footer>
 <div class="mobile-book"><a class="btn btn--primary" href="reservar.html">Reservar ahora</a></div>
 
-<script src="assets/js/data.js"></script>
-<script src="assets/js/partials.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/i18n.js"></script>
+<script src="assets/js/data.js?v=5"></script>
+<script src="assets/js/partials.js?v=5"></script>
+<script src="assets/js/main.js?v=5"></script>
+<script src="assets/js/i18n.js?v=5"></script>
 </body>
 </html>

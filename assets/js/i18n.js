@@ -63,6 +63,9 @@
       "Thirteen rooms around the garden, each one different. Cotton bedding, quiet air conditioning, fibre Wi-Fi and breakfast included in the flexible rate. Reference prices per night, taxes not included.",
     "Ver detalle": "View details",
     "Desde": "From",
+    "La casa por dentro": "Inside the house",
+    "Jardín, terraza, comedor y habitaciones. Toca cualquier imagen para verla en grande.":
+      "Garden, terrace, dining room and rooms. Tap any image to view it larger.",
     "Ver todas las habitaciones": "View all rooms",
     "Ver la carta y los horarios": "View the menu and hours",
     "Explorar el barrio": "Explore the neighbourhood",

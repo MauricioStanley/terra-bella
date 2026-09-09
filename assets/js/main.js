@@ -38,8 +38,9 @@
   /* ---------- Scroll reveal ---------- */
   var revealEls = $$(".reveal, .reveal-img");
   if (revealEls.length) {
+    var showAll = function () { revealEls.forEach(function (el) { el.classList.add("is-visible"); }); };
     if (reduceMotion || !("IntersectionObserver" in window)) {
-      revealEls.forEach(function (el) { el.classList.add("is-visible"); });
+      showAll();
     } else {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
@@ -50,6 +51,25 @@
         });
       }, { threshold: 0.14, rootMargin: "0px 0px -8% 0px" });
       revealEls.forEach(function (el) { io.observe(el); });
+      /* red de seguridad: si el observer nunca dispara (pestaña en 2.º plano al
+         cargar, viewport sin altura, etc.) nada debe quedarse invisible */
+      var pending = revealEls.slice();
+      var flush = function () {
+        pending = pending.filter(function (el) {
+          if (el.classList.contains("is-visible")) return false;
+          var r = el.getBoundingClientRect();
+          if (r.top < (window.innerHeight || document.documentElement.clientHeight || 9999) + 200) {
+            el.classList.add("is-visible");
+            return false;
+          }
+          return true;
+        });
+      };
+      window.addEventListener("load", flush);
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") flush();
+      });
+      setTimeout(function () { showAll(); }, 4000);
     }
   }
 
@@ -97,69 +117,6 @@
       }, { threshold: 0.6 });
       counters.forEach(function (el) { cio.observe(el); });
     }
-  }
-
-  /* ---------- Barra de reserva (hero) ---------- */
-  var bookbar = $("#bookbar");
-  if (bookbar) {
-    var ci = $("#bb-checkin"), co = $("#bb-checkout");
-    var fmt = function (d) { return d.toISOString().slice(0, 10); };
-    var today = new Date();
-    var tmr = new Date(); tmr.setDate(tmr.getDate() + 1);
-    var dayAfter = new Date(); dayAfter.setDate(dayAfter.getDate() + 2);
-    if (ci && !ci.value) { ci.value = fmt(tmr); ci.min = fmt(today); }
-    if (co && !co.value) { co.value = fmt(dayAfter); co.min = fmt(dayAfter); }
-    if (ci && co) {
-      ci.addEventListener("change", function () {
-        var next = new Date(ci.value); next.setDate(next.getDate() + 1);
-        co.min = fmt(next);
-        if (new Date(co.value) <= new Date(ci.value)) co.value = fmt(next);
-      });
-    }
-
-    var guestsField = $("#bb-guests");
-    var pop = $("#guests-pop");
-    if (guestsField && pop) {
-      var state = { adults: 2, children: 0, rooms: 1 };
-      var display = $("#bb-guests-display");
-      var sync = function () {
-        display.textContent = state.adults + " adultos · " + state.children + " niños · " + state.rooms + (state.rooms > 1 ? " habitaciones" : " habitación");
-        $$("[data-step]").forEach(function (b) {
-          var k = b.getAttribute("data-step").split(":")[0];
-          $("#val-" + k).textContent = state[k];
-        });
-      };
-      guestsField.addEventListener("click", function (e) {
-        e.stopPropagation();
-        pop.classList.toggle("open");
-      });
-      pop.addEventListener("click", function (e) { e.stopPropagation(); });
-      document.addEventListener("click", function () { pop.classList.remove("open"); });
-      $$("[data-step]", pop).forEach(function (b) {
-        b.addEventListener("click", function () {
-          var parts = b.getAttribute("data-step").split(":");
-          var k = parts[0], dir = parts[1] === "up" ? 1 : -1;
-          var min = k === "adults" || k === "rooms" ? 1 : 0;
-          state[k] = Math.max(min, Math.min(9, state[k] + dir));
-          if (state.rooms > state.adults) state.rooms = state.adults;
-          sync();
-        });
-      });
-      sync();
-      bookbar._guests = state;
-    }
-
-    bookbar.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var g = bookbar._guests || { adults: 2, children: 0, rooms: 1 };
-      var params = new URLSearchParams({
-        checkin: ci ? ci.value : "",
-        checkout: co ? co.value : "",
-        adults: g.adults, children: g.children, rooms: g.rooms,
-        promo: ($("#bb-promo") && $("#bb-promo").value) || "",
-      });
-      window.location.href = "reservar.html?" + params.toString();
-    });
   }
 
   /* ---------- Lightbox de galería ---------- */

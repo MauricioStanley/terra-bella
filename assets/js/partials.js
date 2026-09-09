@@ -104,7 +104,7 @@
         '<p class="muted" style="margin-top:16px;max-width:34ch">Avenida La Revolución #175, Colonia San Benito, San Salvador, El Salvador.</p>' +
         '<div class="footer-social">' +
           '<a href="https://www.facebook.com/terrabellahotelboutique/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7c0-1 .3-2 2-2h2V1.5C22 1.4 20.6 1 19 1c-3 0-5 2-5 5v4h-3v4h3v8z"/></svg></a>' +
-          '<a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>' +
+          '<a href="https://www.instagram.com/terrabellahotelboutique/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>' +
           '<a href="https://wa.me/' + WA + '" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.9.9-.9 2.2 0 3.5a9 9 0 0 0 4.5 4c1.9.7 1.9.5 2.3.4.4 0 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1z"/></svg></a>' +
         '</div>' +
       '</div>' +
